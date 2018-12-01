@@ -1,3 +1,4 @@
 language: java
 jdk: openjdk11
 install: mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V -t .maven/toolchains.xml
+script: mvn test -B -t .maven/toolchains.xml
