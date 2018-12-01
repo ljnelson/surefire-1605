@@ -1,7 +1,7 @@
 language: java
 jdk: openjdk11
 install:
-  - env
+  - mvn --version
   - mvn -B -t .maven/toolchains.xml clean verify
 cache:
   directories:
