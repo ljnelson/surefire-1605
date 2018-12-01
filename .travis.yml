@@ -1,6 +1,8 @@
 language: java
 jdk: openjdk11
-install: mvn -B -t .maven/toolchains.xml clean verify
+install:
+  - env
+  - mvn -B -t .maven/toolchains.xml clean verify
 cache:
   directories:
     - "${HOME}/.m2/repository"
