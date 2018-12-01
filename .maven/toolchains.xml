@@ -5,7 +5,6 @@
     <type>jdk</type>
     <provides>
       <version>11</version>
-      <vendor>OpenJDK</vendor>
     </provides>
     <configuration>
       <jdkHome>/home/travis/openjdk11</jdkHome> <!-- HACK; ${env.HOME} is not expanded for some reason -->
