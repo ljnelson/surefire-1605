@@ -8,7 +8,7 @@
       <vendor>OpenJDK</vendor>
     </provides>
     <configuration>
-      <jdkHome>${env.HOME}/openjdk11</jdkHome>
+      <jdkHome>/home/travis/openjdk11</jdkHome> <!-- HACK; ${env.HOME} is not expanded for some reason -->
     </configuration>
   </toolchain>
 
