@@ -8,7 +8,7 @@
       <vendor>OpenJDK</vendor>
     </provides>
     <configuration>
-      <jdkHome>${env.JAVA_HOME}</jdkHome>
+      <jdkHome>${env.HOME}/openjdk11</jdkHome>
     </configuration>
   </toolchain>
 
