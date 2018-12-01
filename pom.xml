@@ -216,6 +216,11 @@
           <artifactId>maven-surefire-plugin</artifactId>
           <version>3.0.0-M1</version>
         </plugin>
+
+        <plugin>
+          <artifactId>maven-toolchains-plugin</artifactId>
+          <version>1.1</version>
+        </plugin>
         
         <plugin>
           <artifactId>maven-war-plugin</artifactId>
@@ -269,6 +274,25 @@
     </pluginManagement>
 
     <plugins>
+
+      <plugin>
+        <artifactId>maven-toolchains-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>toolchain</goal>
+            </goals>
+            <configuration>
+              <toolchains>
+                <jdk>
+                  <version>${maven.compiler.target}</version>
+                </jdk>
+              </toolchains>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      
       <plugin>
         <groupId>org.sonatype.plugins</groupId>
         <artifactId>nexus-staging-maven-plugin</artifactId>
@@ -317,48 +341,6 @@
   </properties>
 
   <profiles>
-
-<profile>
-      <id>toolchain</id>
-      <activation>
-        <file>
-          <exists>${user.home}/.m2/toolchains.xml</exists>
-        </file>
-      </activation>
-      <build>
-        <pluginManagement>
-          <plugins>
-            <plugin>
-              <artifactId>maven-toolchains-plugin</artifactId>
-              <version>1.1</version>
-            </plugin>
-          </plugins>
-        </pluginManagement>
-        <plugins>
-          <plugin>
-            <artifactId>maven-toolchains-plugin</artifactId>
-            <executions>
-              <execution>
-                <goals>
-                  <goal>toolchain</goal>
-                </goals>
-                <configuration>
-                  <toolchains>
-                    <jdk>
-                      <version>${jdkToolchainVersion}</version>
-                    </jdk>
-                  </toolchains>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-      <properties>
-        <!-- Properties related to maven-toolchains-plugin -->
-        <jdkToolchainVersion>${maven.compiler.target}</jdkToolchainVersion>
-      </properties>
-    </profile>
     
     <profile>
       <id>release</id>
